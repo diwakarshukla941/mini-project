@@ -13,6 +13,7 @@ include "db/db.php";
       }
       
    }
+
 ?>
 
 
@@ -91,7 +92,7 @@ include "db/db.php";
 
 <section class="form-container">
 
-   <form action="" method="post" enctype="multipart/form-data">
+   <form action="process.php" method="post" enctype="multipart/form-data">
       <h3>register now</h3>
       <p>your name <span>*</span></p>
       <input type="text" name="name" placeholder="enter your name"  maxlength="50" class="box">
@@ -100,7 +101,7 @@ include "db/db.php";
       <p>your password <span>*</span></p>
       <input type="password" id="pass" name="pass" placeholder="enter your password" maxlength="20" class="box">
       <p>select profile <span>*</span></p>
-      <input type="file" accept="image/*"  class="box">
+      <input type="file" accept="image/*" name="profile"  class="box">
       <input type="submit" value="register new" name="submit" class="btn" >
    </form>
 

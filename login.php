@@ -98,6 +98,7 @@ if (isset($_POST["submit"])) {
             <p>your password <span>*</span></p>
             <input type="password" name="pass" placeholder="enter your password" required maxlength="20" class="box">
             <input type="submit" value="login new" name="submit" class="btn">
+            <center><p class="signup" >I don't Have An Account!! <a href="register.php">Signup</a></p></center>
          </form>
       </section>
 
