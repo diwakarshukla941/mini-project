@@ -1,29 +1,11 @@
-<?php
-include "db/db.php";
-
-   if(isset($_POST['submit'])){
-      $name = $_POST["name"];
-      $email = $_POST["email"];
-      $password = $_POST["pass"];
-
-      $insert = "INSERT INTO login (name,email,password) VALUES ('$name','$email','$password')";
-      $sql = mysqli_query($conn,$insert);
-      if(!$sql){
-         echo "the data hasbeen lost";
-      }
-      
-   }
-
-?>
-
-
+   
 <!DOCTYPE html>
 <html lang="en">
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>register</title>
+   <title>profile</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
@@ -55,7 +37,7 @@ include "db/db.php";
       <div class="profile">
          <img src="images/pic-1.jpg" class="image" alt="">
          <h3 class="name">Karan rathod</h3>
-         <p class="role">student</p>
+         <p class="role">studen</p>
          <a href="profile.html" class="btn">view profile</a>
          <div class="flex-btn">
             <a href="login.html" class="option-btn">login</a>
@@ -90,22 +72,71 @@ include "db/db.php";
 
 </div>
 
-<section class="form-container">
+<section class="user-profile">
 
-   <form action="process.php" method="post" enctype="multipart/form-data">
-      <h3>register now</h3>
-      <p>your name <span>*</span></p>
-      <input type="text" name="name" placeholder="enter your name"  maxlength="50" class="box">
-      <p>your email <span>*</span></p>
-      <input type="email" name="email" placeholder="enter your email"  maxlength="50" class="box">
-      <p>your password <span>*</span></p>
-      <input type="password" id="pass" name="pass" placeholder="enter your password" maxlength="20" class="box">
-      <p>select profile <span>*</span></p>
-      <input type="file" accept="image/*" name="profile"  class="box">
-      <input type="submit" value="register new" name="submit" class="btn" >
-   </form>
+   <h1 class="heading">your profile</h1>
+
+   <div class="info">
+
+      <div class="user">
+         <img src="images/pic-1.jpg" alt="">
+         <h3>Karan rathod</h3>
+         <p>student</p>
+         <!-- <a href="update.html" class="inline-btn">update profile</a> -->
+      </div>
+   
+      <div class="box-container">
+   
+         <div class="box">
+            <div class="flex">
+               <i class="fas fa-bookmark"></i>
+               <div>
+                  <span>4</span>
+                  <p>saved playlist</p>
+               </div>
+            </div>
+            <a href="#" class="inline-btn">view playlists</a>
+         </div>
+   
+         <div class="box">
+            <div class="flex">
+               <i class="fas fa-heart"></i>
+               <div>
+                  <span>33</span>
+                  <p>videos liked</p>
+               </div>
+            </div>
+            <a href="#" class="inline-btn">view liked</a>
+         </div>
+   
+         <div class="box">
+            <div class="flex">
+               <i class="fas fa-comment"></i>
+               <div>
+                  <span>12</span>
+                  <p>videos comments</p>
+               </div>
+            </div>
+            <a href="#" class="inline-btn">view comments</a>
+         </div>
+   
+      </div>
+   </div>
 
 </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <footer class="footer">
 
@@ -114,8 +145,7 @@ include "db/db.php";
 </footer>
 
 <!-- custom js file link  -->
-<script src="js/script.js">
-</script>
+<script src="js/script.js"></script>
 
    
 </body>

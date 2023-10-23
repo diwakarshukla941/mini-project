@@ -10,7 +10,7 @@ if (isset($_POST["submit"])) {
 
    if ($row = mysqli_fetch_assoc($result)) {
       echo "Login successful";
-      header("Location: home.html");
+      header("Location: home.php");
       exit();
   } else {
       echo "Login failed!";
@@ -38,9 +38,9 @@ if (isset($_POST["submit"])) {
       <header class="header"> 
          <section class="flex">
 
-            <a href="home.html" class="logo">Educa.</a>
+            <a href="home.php" class="logo">Educa.</a>
 
-            <!-- <form action="search.html" method="post" class="search-form">
+            <!-- <form action="search.php" method="post" class="search-form">
                <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
                <button type="submit" class="fas fa-search"></button>
             </form> -->
@@ -56,10 +56,10 @@ if (isset($_POST["submit"])) {
                <img src="images/pic-1.jpg" class="image" alt="">
                <h3 class="name">Karan Rathod</h3>
                <p class="role">student</p>
-               <a href="profile.html" class="btn">view profile</a>
+               <a href="profile.php" class="btn">view profile</a>
                <div class="flex-btn">
-                  <a href="login.html" class="option-btn">login</a>
-                  <a href="register.html" class="option-btn">register</a>
+                  <a href="login.php" class="option-btn">login</a>
+                  <a href="register.php" class="option-btn">register</a>
                </div>
             </div>
 
@@ -76,15 +76,15 @@ if (isset($_POST["submit"])) {
             <img src="images/pic-1.jpg" class="image" alt="">
             <h3 class="name">Karan Rathod</h3>
             <p class="role">student</p>
-            <a href="profile.html" class="btn">view profile</a>
+            <a href="profile.php" class="btn">view profile</a>
          </div>
 
          <nav class="navbar">
-            <a href="home.html"><i class="fas fa-home"></i><span>home</span></a>
-            <a href="about.html"><i class="fas fa-question"></i><span>about</span></a>
-            <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>courses</span></a>
-            <a href="teachers.html"><i class="fas fa-chalkboard-user"></i><span>teachers</span></a>
-            <a href="contact.html"><i class="fas fa-headset"></i><span>contact us</span></a>
+            <a href="home.php"><i class="fas fa-home"></i><span>home</span></a>
+            <a href="about.php"><i class="fas fa-question"></i><span>about</span></a>
+            <a href="courses.php"><i class="fas fa-graduation-cap"></i><span>courses</span></a>
+            <a href="teachers.php"><i class="fas fa-chalkboard-user"></i><span>teachers</span></a>
+            <a href="contact.php"><i class="fas fa-headset"></i><span>contact us</span></a>
          </nav>
 
       </div>
