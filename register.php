@@ -3,7 +3,7 @@ include "db/db.php";
 if(isset($_POST['submit'])){
 $target_dir = "./images/";
 $target_file = $target_dir . basename($_FILES["profile"]["name"]);
-$name = $_POST["name"];
+   $name = $_POST["name"];
    $email = $_POST["email"];
    $password = $_POST["pass"];
 // Check if the file was successfully uploaded
@@ -12,7 +12,7 @@ echo "File uploaded successfully.<br>";
 
 // Now, $target_file contains the file path.
 $file_path = $target_file;
-
+ 
 // Escape the file path to prevent SQL injection
 $file_path = mysqli_real_escape_string($conn, $file_path);
 
@@ -32,7 +32,7 @@ mysqli_close($conn);
 echo "Error uploading the file.";
 }
 
-header("LOCATION:home.php");
+header("LOCATION:login.php");
 }
 
 
@@ -75,7 +75,7 @@ header("LOCATION:home.php");
       </div>
 
       <div class="profile">
-         <img src="images/pic-1.jpg" class="image" alt="">
+         <img src="images/local.png" class="image" alt="">
          <h3 class="name">Karan rathod</h3>
          <p class="role">student</p>
          <a href="profile.html" class="btn">view profile</a>

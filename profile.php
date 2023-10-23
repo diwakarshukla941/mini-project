@@ -1,5 +1,10 @@
-   
-<!DOCTYPE html>
+<?php
+$name = isset($_GET['name']) ? $_GET['name'] : "Guest"; // Get the name from the query parameters, or use "Guest" if not provided.
+$email = isset($_GET['email']) ? $_GET['email'] : "Not provided"; // Get the email or show a message if not provided.
+$profilepic = isset($_GET['profilepic']) ? $_GET['profilepic'] : "default_profile.jpg"; // Get the profile picture or use a default one if not provided.
+?>
+     
+   <!DOCTYPE html>
 <html lang="en">
 <head>
    <meta charset="UTF-8">
@@ -22,11 +27,6 @@
 
       <a href="home.php" class="logo">Educa.</a>
 
-      <!-- <form action="search.html" method="post" class="search-form">
-         <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
-         <button type="submit" class="fas fa-search"></button>
-      </form> -->
-
       <div class="icons">
          <div id="menu-btn" class="fas fa-bars"></div>
          <div id="search-btn" class="fas fa-search"></div>
@@ -35,13 +35,13 @@
       </div>
 
       <div class="profile">
-         <img src="images/pic-1.jpg" class="image" alt="">
-         <h3 class="name">Karan rathod</h3>
-         <p class="role">studen</p>
-         <a href="profile.html" class="btn">view profile</a>
+         <img src="<?php echo $profilepic; ?>" class="image" alt="">
+         <h3 class="name"><?php echo $name; ?></h3>
+         <p class="role"><?php echo $email; ?></p>
+         <a href="profile.php" class="btn">view profile</a>
          <div class="flex-btn">
-            <a href="login.html" class="option-btn">login</a>
-            <a href="register.html" class="option-btn">register</a>
+            <a href="login.php" class="option-btn">login</a>
+            <a href="register.php" class="option-btn">register</a>
          </div>
       </div>
 
@@ -56,9 +56,9 @@
    </div>
 
    <div class="profile">
-      <img src="images/pic-1.jpg" class="image" alt="">
-      <h3 class="name">Karan rathod</h3>
-      <p class="role">student</p>
+      <img src="<?php echo $profilepic; ?>" class="image" alt="">
+      <h3 class="name"><?php echo $name; ?></h3>
+      <p class="role"><?php echo $email; ?></p>
       <a href="profile.html" class="btn">view profile</a>
    </div>
 
@@ -79,9 +79,9 @@
    <div class="info">
 
       <div class="user">
-         <img src="images/pic-1.jpg" alt="">
-         <h3>Karan rathod</h3>
-         <p>student</p>
+         <img src="<?php echo $profilepic; ?>" alt="">
+         <h3><?php echo $name; ?></h3>
+         <p><?php echo $email; ?></p>
          <!-- <a href="update.html" class="inline-btn">update profile</a> -->
       </div>
    

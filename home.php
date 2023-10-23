@@ -1,3 +1,12 @@
+<?php
+$name = isset($_GET['name']) ? $_GET['name'] : 'Guest';
+$email = isset($_GET['email']) ? $_GET['email'] : 'No email provided';
+$profilepic = isset($_GET['profilepic']) ? $_GET['profilepic'] : 'default.jpg';
+echo "Name: " . $name; // Debug output to check the name
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,10 +41,12 @@
          <div id="user-btn" class="fas fa-user"></div>
          <div id="toggle-btn" class="fas fa-sun"></div>
       </div>
+   
+
 
       <div class="profile">
-         <img src="images/pic-1.jpg" class="image" alt="">
-         <h3 class="name">Karan Rathod</h3>
+         <img src="<?php echo $profilepic; ?>" class="image" alt="">
+         <h2 class="name">Welcome ,<?php echo $name;?></h2>
          <p class="role">student</p>
          <a href="profile.php" class="btn">view profile</a>
          <div class="flex-btn">
@@ -55,10 +66,10 @@
    </div>
 
    <div class="profile">
-      <img src="images/pic-1.jpg" class="image" alt="">
-      <h3 class="name">Karan rathod</h3>
+      <img src="<?php echo $profilepic; ?>" class="image" alt="">
+      <h3 class="name"><?php echo $name; ?></h3>
       <p class="role">Student</p>
-      <a href="profile.php" class="btn">view profile</a>
+      <a href="profile.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="btn">View Profile</a>
    </div>
 
    <nav class="navbar">
@@ -194,6 +205,7 @@
          <h3 class="title">complete Boostrap tutorial</h3>
          <a href="../../playlists/playlistboots.php" class="inline-btn">view playlist</a>
       </div>
+     
 
    </div>
 
