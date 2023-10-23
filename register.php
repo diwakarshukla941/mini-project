@@ -1,18 +1,40 @@
 <?php
 include "db/db.php";
+if(isset($_POST['submit'])){
+$target_dir = "./images/";
+$target_file = $target_dir . basename($_FILES["profile"]["name"]);
+$name = $_POST["name"];
+   $email = $_POST["email"];
+   $password = $_POST["pass"];
+// Check if the file was successfully uploaded
+if (move_uploaded_file($_FILES["profile"]["tmp_name"], $target_file)) {
+echo "File uploaded successfully.<br>";
 
-   if(isset($_POST['submit'])){
-      $name = $_POST["name"];
-      $email = $_POST["email"];
-      $password = $_POST["pass"];
+// Now, $target_file contains the file path.
+$file_path = $target_file;
 
-      $insert = "INSERT INTO login (name,email,password) VALUES ('$name','$email','$password')";
-      $sql = mysqli_query($conn,$insert);
-      if(!$sql){
-         echo "the data hasbeen lost";
-      }
-      
-   }
+// Escape the file path to prevent SQL injection
+$file_path = mysqli_real_escape_string($conn, $file_path);
+
+// Insert the file path into the database
+
+$sql = "INSERT INTO login (name,email,password,profilepic) VALUES ('$name','$email','$password','$file_path')";
+
+if (mysqli_query($conn, $sql)) {
+    echo "File path inserted into the database successfully.<br>";
+} else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
+
+// Close the database connection
+mysqli_close($conn);
+} else {
+echo "Error uploading the file.";
+}
+
+header("LOCATION:home.php");
+}
+
 
 ?>
 
@@ -92,16 +114,16 @@ include "db/db.php";
 
 <section class="form-container">
 
-   <form action="process.php" method="post" enctype="multipart/form-data">
+   <form method="post" enctype="multipart/form-data">
       <h3>register now</h3>
       <p>your name <span>*</span></p>
-      <input type="text" name="name" placeholder="enter your name"  maxlength="50" class="box">
+      <input type="text" name="name" placeholder="enter your name"  maxlength="50" class="box" required>
       <p>your email <span>*</span></p>
-      <input type="email" name="email" placeholder="enter your email"  maxlength="50" class="box">
+      <input type="email" name="email" placeholder="enter your email"  maxlength="50" class="box" required>
       <p>your password <span>*</span></p>
-      <input type="password" id="pass" name="pass" placeholder="enter your password" maxlength="20" class="box">
+      <input type="password" id="pass" name="pass" placeholder="enter your password" maxlength="20" class="box" required>
       <p>select profile <span>*</span></p>
-      <input type="file" accept="image/*" name="profile"  class="box">
+      <input type="file" accept="image/*" name="profile"  class="box" required>
       <input type="submit" value="register new" name="submit" class="btn" >
    </form>
 
