@@ -1,7 +1,5 @@
 <?php
-$name = isset($_GET['name']) ? $_GET['name'] : "Guest"; // Get the name from the query parameters, or use "Guest" if not provided.
-$email = isset($_GET['email']) ? $_GET['email'] : "Not provided"; // Get the email or show a message if not provided.
-$profilepic = isset($_GET['profilepic']) ? $_GET['profilepic'] : "default_profile.jpg"; // Get the profile picture or use a default one if not provided.
+include "include_info/info.php"; // Get the profile picture or use a default one if not provided.
 ?>
      
    <!DOCTYPE html>
@@ -63,11 +61,11 @@ $profilepic = isset($_GET['profilepic']) ? $_GET['profilepic'] : "default_profil
    </div>
 
    <nav class="navbar">
-      <a href="home.html"><i class="fas fa-home"></i><span>home</span></a>
-      <a href="about.html"><i class="fas fa-question"></i><span>about</span></a>
-      <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>courses</span></a>
-      <a href="teachers.html"><i class="fas fa-chalkboard-user"></i><span>teachers</span></a>
-      <a href="contact.html"><i class="fas fa-headset"></i><span>contact us</span></a>
+      <a href="home.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>"><i class="fas fa-home"></i><span>home</span></a>
+      <a href="about.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>"><i class="fas fa-question"></i><span>about</span></a>
+      <a href="courses.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>"><i class="fas fa-graduation-cap"></i><span>courses</span></a>
+      <a href="teachers.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>"><i class="fas fa-chalkboard-user"></i><span>teachers</span></a>
+      <a href="contact.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>"><i class="fas fa-headset"></i><span>contact us</span></a>
    </nav>
 
 </div>
