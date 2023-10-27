@@ -1,0 +1,44 @@
+body {
+    background: linear-gradient(180deg, #1e1e1e, #121212);
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+h1 {
+    text-align: center;
+}
+.upload-container {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+}
+.upload-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+select, button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#video-preview {
+    margin-top: 20px;
+    text-align: center;
+}
+#preview {
+    width: 50%;
+}
+.back{
+    display: flex;
+    justify-content: center;
+}
