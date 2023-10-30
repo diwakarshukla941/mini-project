@@ -1,3 +1,12 @@
+<?php
+   include "../../db/db.php";
+   $name = isset($_GET['name']) ? $_GET['name'] : 'Guest';
+   $email = isset($_GET['email']) ? $_GET['email'] : 'No email provided';
+   $profilepic = isset($_GET['profilepic']) ? $_GET['profilepic'] : 'default.jpg';
+   echo "Name: " . $name; // Debug output to check the name
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,8 +43,8 @@
       </div>
 
       <div class="profile">
-         <img src="../../images/pic-1.jpg" class="image" alt="">
-         <h3 class="name">Karan rathod</h3>
+         <img src="../../<?php echo $profilepic; ?>" class="image" alt="">
+         <h3 class="name"><?php echo $name; ?></h3>
          <p class="role">student</p>
          <a href="../../profile.php" class="btn">view profile</a>
          <div class="flex-btn">
@@ -55,8 +64,8 @@
    </div>
 
    <div class="profile">
-      <img src="../../images/pic-1.jpg" class="image" alt="">
-      <h3 class="name">Karan rathod</h3>
+      <img src="../../<?php echo $profilepic; ?>" class="image" alt="">
+      <h3 class="name"><?php echo $name; ?></h3>
       <p class="role">student</p>
       <a href="../../profile.php" class="btn">view profile</a>
    </div>
@@ -72,12 +81,19 @@
 </div>
 
 <section class="watch-video">
-
+   <?php
+      $vid = $_GET['id']; 
+     $SELECT = "SELECT * FROM videos WHERE id = '$vid'";
+     $connect = mysqli_query($conn,$SELECT);
+     $row = mysqli_fetch_assoc($connect);
+     $video = $row['video_path'];
+     $title = $row['title']; 
+   ?>
    <div class="video-container">
       <div class="video">
-         <video src="../../video/HTML V/vid-1.mp4" controls poster="../../images/post-1-1.png" id="video"></video>
+         <video src="../../uploadvideo/<?php echo $video; ?>" controls poster="../../images/post-1-1.png" id="video"></video>
       </div>
-      <h3 class="title">complete HTML tutorial (part 01)</h3>
+      <h3 class="title"><?php echo $title; ?></h3>
       <div class="info">
          <p class="date"><i class="fas fa-calendar"></i><span>22-10-2022</span></p>
          <!-- <p class="date"><i class="fas fa-heart"></i><span>44 likes</span></p> -->

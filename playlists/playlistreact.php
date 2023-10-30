@@ -1,3 +1,11 @@
+<?php
+   include "../db/db.php";
+   $name = isset($_GET['name']) ? $_GET['name'] : 'Guest';
+   $email = isset($_GET['email']) ? $_GET['email'] : 'No email provided';
+   $profilepic = isset($_GET['profilepic']) ? $_GET['profilepic'] : 'default.jpg';
+   
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +27,7 @@
    
    <section class="flex">
 
-      <a href="../home.php" class="logo">Educa.</a>
+      <a href="../home.php?id=<?php echo $id; ?>&name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="logo">Educa.</a>
 
       <!-- <form action="search.php" method="post" class="search-form">
          <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
@@ -34,13 +42,13 @@
       </div>
 
       <div class="profile">
-         <img src="../images/pic-1.jpg" class="image" alt="">
-         <h3 class="name">Karan rathod</h3>
+      <img src="../<?php echo $profilepic; ?>" class="image" alt="">
+         <h3 class="name"><?php echo $name; ?></h3>
          <p class="role">Student</p>
-         <a href="../profile.php" class="btn">view profile</a>
+         <a href="../profile.php?id=<?php echo $id; ?>&name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="btn">view profile</a>
          <div class="flex-btn">
-            <a href="../login.php" class="option-btn">login</a>
-            <a href="../register.php" class="option-btn">register</a>
+            <a href="../login.php?id=<?php echo $id; ?>&name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="option-btn">login</a>
+            <a href="../register.php?id=<?php echo $id; ?>&name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="option-btn">register</a>
          </div>
       </div>
 
@@ -55,18 +63,18 @@
    </div>
 
    <div class="profile">
-      <img src="../images/pic-1.jpg" class="image" alt="">
-      <h3 class="name">Karan rathod</h3>
+   <img src="../<?php echo $profilepic; ?>" class="image" alt="">
+         <h3 class="name"><?php echo $name; ?></h3>
       <p class="role">Student</p>
-      <a href="../profile.php" class="btn">view profile</a>
+      <a href="../profile.php?id=<?php echo $id; ?>&name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="btn">view profile</a>
    </div>
 
    <nav class="navbar">
-      <a href="../home.php"><i class="fas fa-home"></i><span>home</span></a>
-      <a href="../about.php"><i class="fas fa-question"></i><span>about</span></a>
-      <a href="../courses.php"><i class="fas fa-graduation-cap"></i><span>courses</span></a>
-      <a href="../teachers.php"><i class="fas fa-chalkboard-user"></i><span>teachers</span></a>
-      <a href="../contact.php"><i class="fas fa-headset"></i><span>contact us</span></a>
+      <a href="../home.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>"><i class="fas fa-home"></i><span>home</span></a>
+      <a href="../about.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>"><i class="fas fa-question"></i><span>about</span></a>
+      <a href="../courses.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>"><i class="fas fa-graduation-cap"></i><span>courses</span></a>
+      <a href="../teachers.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>"><i class="fas fa-chalkboard-user"></i><span>teachers</span></a>
+      <a href="../contact.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>"><i class="fas fa-headset"></i><span>contact us</span></a>
    </nav>
 
 </div>
@@ -83,7 +91,7 @@
          </form> -->
    
          <div class="thumb">
-            <img src="../../images/thumb-9.png" alt="">
+            <img src="../images/thumb-9.png" alt="">
             <span>10 videos</span>
          </div>
       </div>
@@ -99,7 +107,7 @@
          <div class="details">
             <h3>complete REACT tutorial</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum minus reiciendis, error sunt veritatis exercitationem deserunt velit doloribus itaque voluptate.</p>
-            <a href="../teacher_profile.php" class="inline-btn">view profile</a>
+            <a href="../teacher_profile.php?id=<?php echo $id; ?>&name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="inline-btn">view profile</a>
          </div>
       </div>
    </div>
@@ -112,35 +120,21 @@
 
    <div class="box-container">
 
-      <a class="box" href="../watch-video/react/watch-react-video.php">
+   <?php
+      $select = "SELECT * FROM videos WHERE type = 'react' ";
+      $connection = mysqli_query($conn,$select);
+      while($fetch = mysqli_fetch_assoc($connection)){
+         $title = $fetch['title'];
+         $id = $fetch['id'];
+      ?>
+      <a class="box" href="../watch-video/react/watch-react-video.php?id=<?php echo $id; ?>&name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>">
          <i class="fas fa-play"></i>
          <img src="../images/thumb-9.png" alt="">
-         <h3>complete REACT tutorial (part 01)</h3>
+         <h3><?php echo $title; ?></h3>
       </a>
+         <?php } ?>
 
-      <a class="box" href="../watch-video/react/watch-react-video2.php">
-         <i class="fas fa-play"></i>
-         <img src="../images/thumb-9.png" alt="">
-         <h3>complete REACT tutorial (part 02)</h3>
-      </a>
 
-      <a class="box" href="../watch-video/react/watch-react-video3.php">
-         <i class="fas fa-play"></i>
-         <img src="../images/thumb-9.png" alt="">
-         <h3>complete REACT tutorial (part 03)</h3>
-      </a>
-
-      <a class="box" href="../watch-video/react/watch-react-video4.php">
-         <i class="fas fa-play"></i>
-         <img src="../images/thumb-9.png" alt="">
-         <h3>complete REACT tutorial (part 04)</h3>
-      </a>
-
-      <a class="box" href="../watch-video/react/watch-react-video5.php">
-         <i class="fas fa-play"></i>
-         <img src="../images/thumb-9.png" alt="">
-         <h3>complete REACT tutorial (part 05)</h3>
-      </a>
 
    </div>
 

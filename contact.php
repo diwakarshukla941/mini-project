@@ -1,5 +1,6 @@
 <?php
    include "include_info/info.php";
+   
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +24,7 @@
    
    <section class="flex">
 
-      <a href="home.php" class="logo">Educa.</a>
+      <a href="home.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="logo">Educa.</a>
 
       <!-- <form action="search.php" method="post" class="search-form">
          <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
@@ -38,13 +39,13 @@
       </div>
 
       <div class="profile">
-         <img src="images/pic-1.jpg" class="image" alt="">
-         <h3 class="name">Karan rathod</h3>
+         <img src="<?php echo $profilepic; ?>" class="image" alt="">
+         <h3 class="name"><?php echo $name; ?></h3>
          <p class="role">Student</p>
-         <a href="profile.php" class="btn">view profile</a>
+         <a href="profile.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="btn">view profile</a>
          <div class="flex-btn">
-            <a href="login.php" class="option-btn">login</a>
-            <a href="register.php" class="option-btn">register</a>
+            <a href="login.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="option-btn">login</a>
+            <a href="register.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="option-btn">register</a>
          </div>
       </div>
 
@@ -59,10 +60,10 @@
    </div>
 
    <div class="profile">
-      <img src="images/pic-1.jpg" class="image" alt="">
-      <h3 class="name">Karan rathod</h3>
+      <img src="<?php echo $profilepic; ?> " class="image" alt="">
+      <h3 class="name"><?php echo $name; ?></h3>
       <p class="role">Student</p>
-      <a href="profile.php" class="btn">view profile</a>
+      <a href="profile.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="btn">view profile</a>
    </div>
 
    <nav class="navbar">
@@ -93,21 +94,23 @@
       </form>
 
    </div>  -->
-
+   
+   <div class="image">
+         <center><img src="images/contact-img.svg" width="500px" alt=""></center>
+      </div>
    <div class="box-container">
-
       <div class="box">
          <i class="fas fa-phone"></i>
          <h3>phone number</h3>
-         <a href="tel:1234567890">000-333-0000</a>
-         <a href="tel:1112223333">111-222-3333</a>
+         <a href="tel:1234567890">+91 9619935337</a>
+         <a href="tel:1112223333">+91 7045215451</a>
       </div>
       
       <div class="box">
          <i class="fas fa-envelope"></i>
          <h3>email address</h3>
-         <a href="mailto:shaikhanas@gmail.com">karanrathod@gmail.com</a>
-         <a href="mailto:anasbhai@gmail.com">pratikdawkhar@gmail.come</a>
+         <a href="mailto:shaikhanas@gmail.com">shukladiwakar941@gmail.com</a>
+         <a href="mailto:anasbhai@gmail.com">nasimk7045@outlook.com</a>
       </div>
 
       <div class="box">
@@ -117,9 +120,7 @@
       </div>
 
    </div>
-   <div class="image">
-      <img src="images/contact-img.svg" alt="">
-   </div>
+  
 
 </section>
 

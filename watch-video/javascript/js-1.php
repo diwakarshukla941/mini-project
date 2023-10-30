@@ -1,3 +1,10 @@
+<?php
+include "../../db/db.php";
+$name = isset($_GET['name']) ? $_GET['name'] : 'Guest';
+$email = isset($_GET['email']) ? $_GET['email'] : 'No email provided';
+$profilepic = isset($_GET['profilepic']) ? $_GET['profilepic'] : 'default.jpg';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,8 +41,8 @@
       </div>
 
       <div class="profile">
-         <img src="../../images/pic-1.jpg" class="image" alt="">
-         <h3 class="name">Karan rathod</h3>
+         <img src="../../<?php echo $profilepic; ?>" class="image" alt="">
+         <h3 class="name"><?php echo $name; ?></h3>
          <p class="role">student</p>
          <a href="../../profile.php" class="btn">view profile</a>
          <div class="flex-btn">
@@ -55,8 +62,8 @@
    </div>
 
    <div class="profile">
-      <img src="../../images/pic-1.jpg" class="image" alt="">
-      <h3 class="name">Karan rathod</h3>
+      <img src="../../<?php echo $profilepic; ?>" class="image" alt="">
+      <h3 class="name"><?php echo $name; ?></h3>
       <p class="role">student</p>
       <a href="../../profile.php" class="btn">view profile</a>
    </div>
@@ -72,10 +79,17 @@
 </div>
 
 <section class="watch-video">
-
+   <?php
+      $vid = $_GET['id'];
+      $select = "SELECT * FROM videos WHERE id = '$vid'";
+      $connect = mysqli_query($conn,$select);
+      $row = mysqli_fetch_assoc($connect);
+      $video =$row['video_path'];
+      $title = $row['title']; 
+   ?>
    <div class="video-container">
       <div class="video">
-         <video src="../../video/JS V/javascript01.mp4" controls poster="../../images/thumb-3.png" id="video"></video>
+         <video src="../../uploadvideo/<?php echo $video; ?>" controls poster="../../images/thumb-3.png" id="video"></video>
       </div>
       <h3 class="title">complete JAVASCRIPT tutorial (part 01)</h3>
       <div class="info">

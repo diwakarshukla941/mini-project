@@ -20,6 +20,7 @@ if (isset($_FILES['video'])) {
     $target_directory = 'videos/';
     $video = $_FILES['video']['name'];
     $type = $_POST['type'];
+    $title = $_POST['title'];
     $video_path = $target_directory . $video;
 
     if (move_uploaded_file($_FILES['video']['tmp_name'], $video_path)) {
@@ -30,7 +31,7 @@ if (isset($_FILES['video'])) {
             echo '<script>alert("A video with the same name already exists in the database.");</script>';
         } else {
             // If no video with the same name exists, insert it into the database
-            $insert_sql = "INSERT INTO videos (video_path,type) VALUES ('$video_path','$type')";
+            $insert_sql = "INSERT INTO videos (video_path,type,title) VALUES ('$video_path','$type','$title')";
             if (mysqli_query($conn, $insert_sql)) {
                 echo $type;
             } else {
@@ -59,7 +60,13 @@ if (isset($_FILES['video'])) {
         <div class="upload-container">
             <label for="video" class="upload-label">
                 <span>Select a Video</span>
+                <br>
                 <input type="file" name="video" id="video" accept="video/*" onchange="showVideoPreview(this)" required>  
+            </label>
+            <br>
+            <label for="title" class="upload-label">
+                <span>Enter Title</span>
+                <input type="text" name="title" id="title" required>  
             </label>
 
             <!-- Add a dropdown here -->
@@ -73,7 +80,7 @@ if (isset($_FILES['video'])) {
                 <option value="sass">sass</option>
                 <option value="php">php</option>
                 <option value="mysql">mysql</option>
-                <option value="react">react</option>
+                <option value="react"selected>react</option>
             </select>
 
             <button id="upload-video">Upload Video</button>

@@ -1,12 +1,19 @@
-<?php
-   include "include_info/info.php";
+<?php 
+   include "./db/db.php";
+   $name = isset($_GET['name']) ? $_GET['name'] : 'Guest';
+   $email = isset($_GET['email']) ? $_GET['email'] : 'No email provided';
+   $profilepic = isset($_GET['profilepic']) ? $_GET['profilepic'] : 'default.jpg';
+   $select = "SELECT * FROM videos ";
+   $connect = mysqli_query($conn,$select);
+   $row = mysqli_fetch_assoc($connect);
+   $id = $row['id']; 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
    <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">    
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>courses</title>
 
@@ -23,7 +30,7 @@
    
    <section class="flex">
 
-      <a href="home.php" class="logo">Educa.</a>
+      <a href="home.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="logo">Educa.</a>
 
       <!-- <form action="search.php" method="post" class="search-form">
          <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
@@ -38,13 +45,13 @@
       </div>
 
       <div class="profile">
-         <img src="images/pic-1.jpg" class="image" alt="">
-         <h3 class="name">Karan rathod</h3>
+         <img src="<?php echo $profilepic;?>" class="image" alt="">
+         <h3 class="name"><?php echo $name; ?></h3>
          <p class="role">Student</p>
-         <a href="profile.php" class="btn">view profile</a>
+         <a href="profile.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="btn">view profile</a>
          <div class="flex-btn">
-            <a href="login.php" class="option-btn">login</a>
-            <a href="register.php" class="option-btn">register</a>
+            <a href="login.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="option-btn">login</a>
+            <a href="register.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="option-btn">register</a>
          </div>
       </div>
 
@@ -59,10 +66,10 @@
    </div>
 
    <div class="profile">
-      <img src="images/pic-1.jpg" class="image" alt="">
-      <h3 class="name">Karan rathod</h3>
+      <img src="<?php echo $profilepic;      ?>" class="image" alt="">
+      <h3 class="name"><?php echo $name; ?></h3>
       <p class="role">Student</p>
-      <a href="profile.php" class="btn">view profile</a>
+      <a href="profile.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="btn">view profile</a>
    </div>
 
    <nav class="navbar">
@@ -94,7 +101,7 @@
             <span>10 videos</span>
          </div>
          <h3 class="title">complete HTML tutorial</h3>
-         <a href="./playlists/playlisthtml.php" class="inline-btn">view playlist</a>
+         <a href="./playlists/playlisthtml.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="inline-btn">view playlist</a>
       </div>
 
       <div class="box">
@@ -110,7 +117,7 @@
             <span>10 videos</span>
          </div>
          <h3 class="title">complete CSS tutorial</h3>
-         <a href="./playlists/playlistcss.php" class="inline-btn">view playlist</a>
+         <a href="./playlists/playlistcss.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="inline-btn">view playlist</a>
       </div>
 
       <div class="box">
@@ -126,7 +133,7 @@
             <span>10 videos</span>
          </div>
          <h3 class="title">complete JS tutorial</h3>
-         <a href="./playlists/playlistjs.php" class="inline-btn">view playlist</a>
+         <a href="./playlists/playlistjs.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="inline-btn">view playlist</a>
       </div>
 
       <div class="box">
@@ -142,7 +149,7 @@
             <span>10 videos</span>
          </div>
          <h3 class="title">complete Boostrap tutorial</h3>
-         <a href="./playlists/playlistboots.php" class="inline-btn">view playlist</a>
+         <a href="./playlists/playlistboots.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="inline-btn">view playlist</a>
       </div>
 
       <div class="box">
@@ -158,7 +165,7 @@
             <span>10 videos</span>
          </div>
          <h3 class="title">complete JQuery tutorial</h3>
-         <a href="./playlists/playlistjq.php" class="inline-btn">view playlist</a>
+         <a href="./playlists/playlistjq.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="inline-btn">view playlist</a>
       </div>
 
       <div class="box">
@@ -174,7 +181,7 @@
             <span>10 videos</span>
          </div>
          <h3 class="title">complete SASS tutorial</h3>
-         <a href="./playlists/playlistsass.php" class="inline-btn">view playlist</a>
+         <a href="./playlists/playlistsass.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="inline-btn">view playlist</a>
       </div>
 
       <div class="box">
@@ -191,7 +198,7 @@
                 videos</span>
          </div>
          <h3 class="title">complete PHP tutorial</h3>
-         <a href="./playlists/playlistphp.php" class="inline-btn">view playlist</a>
+         <a href="./playlists/playlistphp.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="inline-btn">view playlist</a>
       </div>
 
       <div class="box">
@@ -207,7 +214,7 @@
             <span>10 videos</span>
          </div>
          <h3 class="title">complete MySQL tutorial</h3>
-         <a href="./playlists/playlistsql.php" class="inline-btn">view playlist</a>
+         <a href="./playlists/playlistsql.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="inline-btn">view playlist</a>
       </div>
 
       <div class="box">
@@ -223,7 +230,7 @@
             <span>10 videos</span>
          </div>
          <h3 class="title">complete react tutorial</h3>
-         <a href="./playlists/playlistreact.php" class="inline-btn">view playlist</a>
+         <a href="./playlists/playlistreact.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="inline-btn">view playlist</a>
       </div>
 
    </div>

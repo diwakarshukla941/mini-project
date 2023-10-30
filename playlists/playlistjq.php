@@ -1,3 +1,11 @@
+<?php
+
+   $name = isset($_GET['name']) ? $_GET['name'] : 'Guest';
+   $email = isset($_GET['email']) ? $_GET['email'] : 'No email provided';
+   $profilepic = isset($_GET['profilepic']) ? $_GET['profilepic'] : 'default.jpg';
+   
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,8 +42,8 @@
       </div>
 
       <div class="profile">
-         <img src="../images/pic-1.jpg" class="image" alt="">
-         <h3 class="name">Karan rathod</h3>
+         <img src="../<?php echo $profilepic; ?>" class="image" alt="">
+         <h3 class="name"><?php echo $name; ?></h3>
          <p class="role">Student</p>
          <a href="../profile.php" class="btn">view profile</a>
          <div class="flex-btn">
@@ -55,18 +63,18 @@
    </div>
 
    <div class="profile">
-      <img src="../images/pic-1.jpg" class="image" alt="">
-      <h3 class="name">Karan rathod</h3>
+      <img src="../<?php echo $profilepic; ?>" class="image" alt="">
+      <h3 class="name"><?php echo $name; ?></h3>
       <p class="role">Student</p>
       <a href="../profile.php" class="btn">view profile</a>
    </div>
-
+  
    <nav class="navbar">
-      <a href="../home.php"><i class="fas fa-home"></i><span>home</span></a>
-      <a href="../about.php"><i class="fas fa-question"></i><span>about</span></a>
-      <a href="../courses.php"><i class="fas fa-graduation-cap"></i><span>courses</span></a>
-      <a href="../teachers.php"><i class="fas fa-chalkboard-user"></i><span>teachers</span></a>
-      <a href="../contact.php"><i class="fas fa-headset"></i><span>contact us</span></a>
+      <a href="../home.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>"><i class="fas fa-home"></i><span>home</span></a>
+      <a href="../about.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>"><i class="fas fa-question"></i><span>about</span></a>
+      <a href="../courses.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>"><i class="fas fa-graduation-cap"></i><span>courses</span></a>
+      <a href="../teachers.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>"><i class="fas fa-chalkboard-user"></i><span>teachers</span></a>
+      <a href="../contact.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>"><i class="fas fa-headset"></i><span>contact us</span></a>
    </nav>
 
 </div>
@@ -107,43 +115,25 @@
 </section>
 
 <section class="playlist-videos">
-
+   
    <h1 class="heading">playlist videos</h1>
-
    <div class="box-container">
-
-      <a class="box" href="../watch-video/JQuery/watch-jq-video.php">
+      <?php
+      include "../db/db.php";
+      $select = "SELECT * FROM videos WHERE type = 'jquery'";
+      $connection = mysqli_query($conn,$select);
+      while($row = mysqli_fetch_assoc($connection)){
+         $id = $row['id'];
+         $title = $row['title'];
+      ?>
+   
+      <a class="box" href="../watch-video/JQuery/watch-jq-video.php?id=<?php echo $id; ?>&name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>">
          <i class="fas fa-play"></i>
          <img src="../images/thumb-5.png" alt="">
-         <h3>complete JQUERY tutorial (part 01)</h3>
-      </a>
-
-      <a class="box" href="../watch-video/JQuery/watch-jq-video2.php">
-         <i class="fas fa-play"></i>
-         <img src="../images/thumb-5.png" alt="">
-         <h3>complete JQUERY tutorial (part 02)</h3>
-      </a>
-
-      <a class="box" href="../watch-video/JQuery/watch-jq-video3.php">
-         <i class="fas fa-play"></i>
-         <img src="../images/thumb-5.png" alt="">
-         <h3>complete JQUERY tutorial (part 03)</h3>
-      </a>
-
-      <a class="box" href="../watch-video/JQuery/watch-jq-video4.php">
-         <i class="fas fa-play"></i>
-         <img src="../images/thumb-5.png" alt="">
-         <h3>complete JQUERY tutorial (part 04)</h3>
-      </a>
-
-      <a class="box" href="../watch-video/JQuery/watch-jq-video5.php">
-         <i class="fas fa-play"></i>
-         <img src="../images/thumb-5.png" alt="">
-         <h3>complete JQUERY tutorial (part 05)</h3>
-      </a>
-
+         <h3><?php echo $title; ?></h3>
+      </a> 
+      <?Php } ?>
    </div>
-
 </section>
 
 

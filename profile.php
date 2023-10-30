@@ -23,7 +23,7 @@ include "include_info/info.php"; // Get the profile picture or use a default one
    
    <section class="flex">
 
-      <a href="home.php" class="logo">Educa.</a>
+      <a href="home.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="logo">Educa.</a>
 
       <div class="icons">
          <div id="menu-btn" class="fas fa-bars"></div>
@@ -36,10 +36,10 @@ include "include_info/info.php"; // Get the profile picture or use a default one
          <img src="<?php echo $profilepic; ?>" class="image" alt="">
          <h3 class="name"><?php echo $name; ?></h3>
          <p class="role"><?php echo $email; ?></p>
-         <a href="profile.php" class="btn">view profile</a>
+         <a href="profile.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="btn">view profile</a>
          <div class="flex-btn">
-            <a href="login.php" class="option-btn">login</a>
-            <a href="register.php" class="option-btn">register</a>
+            <a href="login.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="option-btn">login</a>
+            <a href="register.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="option-btn">register</a>
          </div>
       </div>
 
