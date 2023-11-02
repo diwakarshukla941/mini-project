@@ -13,6 +13,8 @@ if (isset($_POST["submit"])) {
     header("Location: home.php?name={$row['name']}&email={$row['email']}&profilepic={$row['profilepic']}");
 } else {
     echo "Invalid email or password. Please try again.";
+    
 }
+   
 }
 ?>

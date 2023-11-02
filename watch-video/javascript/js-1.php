@@ -26,7 +26,7 @@ $profilepic = isset($_GET['profilepic']) ? $_GET['profilepic'] : 'default.jpg';
    
    <section class="flex">
 
-      <a href="../../home.php" class="logo">Educa.</a>
+      <a href="../../home.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="logo">Educa.</a>
 
       <!-- <form action="search.php" method="post" class="search-form">
          <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
@@ -44,10 +44,10 @@ $profilepic = isset($_GET['profilepic']) ? $_GET['profilepic'] : 'default.jpg';
          <img src="../../<?php echo $profilepic; ?>" class="image" alt="">
          <h3 class="name"><?php echo $name; ?></h3>
          <p class="role">student</p>
-         <a href="../../profile.php" class="btn">view profile</a>
+         <a href="../../profile.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="btn">view profile</a>
          <div class="flex-btn">
-            <a href="../../login.php" class="option-btn">login</a>
-            <a href="../../register.php" class="option-btn">register</a>
+            <a href="../../login.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="option-btn">login</a>
+            <a href="../../register.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="option-btn">register</a>
          </div>
       </div>
 
@@ -65,15 +65,15 @@ $profilepic = isset($_GET['profilepic']) ? $_GET['profilepic'] : 'default.jpg';
       <img src="../../<?php echo $profilepic; ?>" class="image" alt="">
       <h3 class="name"><?php echo $name; ?></h3>
       <p class="role">student</p>
-      <a href="../../profile.php" class="btn">view profile</a>
+      <a href="../../profile.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="btn">view profile</a>
    </div>
 
    <nav class="navbar">
-      <a href="../../home.php"><i class="fas fa-home"></i><span>home</span></a>
-      <a href="../../about.php"><i class="fas fa-question"></i><span>about</span></a>
-      <a href="../../courses.php"><i class="fas fa-graduation-cap"></i><span>courses</span></a>
-      <a href="../../teachers.php"><i class="fas fa-chalkboard-user"></i><span>teachers</span></a>
-      <a href="../../contact.php"><i class="fas fa-headset"></i><span>contact us</span></a>
+      <a href="../../home.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>"><i class="fas fa-home"></i><span>home</span></a>
+      <a href="../../about.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>"><i class="fas fa-question"></i><span>about</span></a>
+      <a href="../../courses.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>"><i class="fas fa-graduation-cap"></i><span>courses</span></a>
+      <a href="../../teachers.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>"><i class="fas fa-chalkboard-user"></i><span>teachers</span></a>
+      <a href="../../contact.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>"><i class="fas fa-headset"></i><span>contact us</span></a>
    </nav>
 
 </div>
