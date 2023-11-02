@@ -27,7 +27,7 @@
    
    <section class="flex">
 
-      <a href="../home.php" class="logo">Educa.</a>
+      <a href="../home.php?id=<?php echo $id; ?>&name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="logo">Educa.</a>
 
       <!-- <form action="search.php" method="post" class="search-form">
          <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
@@ -45,10 +45,10 @@
          <img src="../<?php echo $profilepic; ?>" class="image" alt="">
          <h3 class="name"><?php echo $name; ?></h3>
          <p class="role">Student</p>
-         <a href="../profile.php" class="btn">view profile</a>
+         <a href="../profile.php?id=<?php echo $id; ?>&name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="btn">view profile</a>
          <div class="flex-btn">
-            <a href="../login.php" class="option-btn">login</a>
-            <a href="../register.php" class="option-btn">register</a>
+            <a href="../login.php?id=<?php echo $id; ?>&name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="option-btn">login</a>
+            <a href="../register.php?id=<?php echo $id; ?>&name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="option-btn">register</a>
          </div>
       </div>
 
@@ -66,7 +66,7 @@
       <img src="../<?php echo $profilepic; ?>" class="image" alt="">
       <h3 class="name"><?php echo $name; ?></h3>
       <p class="role">Student</p>
-      <a href="../profile.php" class="btn">view profile</a>
+      <a href="../profile.php?id=<?php echo $id; ?>&name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="btn">view profile</a>
    </div>
   
    <nav class="navbar">
@@ -107,7 +107,7 @@
          <div class="details">
             <h3>complete JQUERY tutorial</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum minus reiciendis, error sunt veritatis exercitationem deserunt velit doloribus itaque voluptate.</p>
-            <a href="../teacher_profile.php" class="inline-btn">view profile</a>
+            <a href="../teacher_profile.php?id=<?php echo $id; ?>&name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="inline-btn">view profile</a>
          </div>
       </div>
    </div>
