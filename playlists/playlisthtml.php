@@ -3,10 +3,10 @@
    $name = isset($_GET['name']) ? $_GET['name'] : 'Guest';
    $email = isset($_GET['email']) ? $_GET['email'] : 'No email provided';
    $profilepic = isset($_GET['profilepic']) ? $_GET['profilepic'] : 'default.jpg';
-   $select = "SELECT * FROM videos ";
-   $connect = mysqli_query($conn,$select);
-   $row = mysqli_fetch_assoc($connect);
-   $id = $row['id']; 
+   $select ="SELECT * FROM videos WHERE type='html'";
+   $fetch = mysqli_query($conn,$select);
+   $row = mysqli_fetch_assoc($fetch);
+   $id = $row['id'];
 ?>
 <!DOCTYPE html>
 <html lang="en">

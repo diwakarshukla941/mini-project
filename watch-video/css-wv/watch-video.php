@@ -89,7 +89,7 @@ $profilepic = isset($_GET['profilepic']) ? $_GET['profilepic'] : 'default.jpg';
    ?>
    <div class="video-container">
       <div class="video">
-         <video src="../../uploadvideo/<?php echo $video ; ?>" controls poster="../../images/post-2-1.png" id="video"></video>
+         <video src="../../uploadvideo/<?php echo $video ; ?>" controls poster="../../images/thumb-2.png" id="video"></video>
       </div>
       <h3 class="title"><?php echo $title?></h3>
       <div class="info">

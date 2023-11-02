@@ -28,7 +28,7 @@
    
    <section class="flex">
 
-      <a href="home.php" class="logo">Educa.</a>
+      <a href="home.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="logo">Educa.</a>
 
       <!-- <form action="search.php" method="post" class="search-form">
          <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">

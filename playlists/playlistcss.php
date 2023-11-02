@@ -129,7 +129,7 @@
    ?>
       <a class="box" href="../watch-video/css-wv/watch-video.php?id=<?php echo $id; ?>&name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>">
          <i class="fas fa-play"></i>
-         <img src="../images/post-2-1.png" alt="">
+         <img src="../images/thumb-2.png" alt="">
          <h3><?php echo $title; ?></h3>
       </a>
 <?php

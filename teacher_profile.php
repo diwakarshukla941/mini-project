@@ -22,7 +22,7 @@
    
    <section class="flex">
 
-      <a href="home.php" class="logo">Educa.</a>
+      <a href="home.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="logo">Educa.</a>
 
       <!-- <form action="search.php" method="post" class="search-form">
          <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
@@ -61,7 +61,7 @@
       <img src="<?php echo $profilepic; ?>" class="image" alt="">
       <h3 class="name"><?php echo $name ;?></h3>
       <p class="role">student</p>
-      <a href="profile.php" class="btn">view profile</a>
+      <a href="profile.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="btn">view profile</a>
    </div>
 
    <nav class="navbar">

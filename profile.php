@@ -36,7 +36,6 @@ include "include_info/info.php"; // Get the profile picture or use a default one
          <img src="<?php echo $profilepic; ?>" class="image" alt="">
          <h3 class="name"><?php echo $name; ?></h3>
          <p class="role"><?php echo $email; ?></p>
-         <a href="profile.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="btn">view profile</a>
          <div class="flex-btn">
             <a href="login.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="option-btn">login</a>
             <a href="register.php?name=<?php echo $name; ?>&email=<?php echo $email; ?>&profilepic=<?php echo $profilepic; ?>" class="option-btn">register</a>
@@ -57,7 +56,6 @@ include "include_info/info.php"; // Get the profile picture or use a default one
       <img src="<?php echo $profilepic; ?>" class="image" alt="">
       <h3 class="name"><?php echo $name; ?></h3>
       <p class="role"><?php echo $email; ?></p>
-      <a href="profile.html" class="btn">view profile</a>
    </div>
 
    <nav class="navbar">

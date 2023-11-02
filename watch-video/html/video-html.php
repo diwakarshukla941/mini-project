@@ -3,6 +3,7 @@
    $name = isset($_GET['name']) ? $_GET['name'] : 'Guest';
    $email = isset($_GET['email']) ? $_GET['email'] : 'No email provided';
    $profilepic = isset($_GET['profilepic']) ? $_GET['profilepic'] : 'default.jpg';
+   
 ?>
 
 <!DOCTYPE html>
@@ -89,7 +90,7 @@
    ?>
    <div class="video-container">
       <div class="video">
-         <video src="../../uploadvideo/<?php echo $video; ?>" controls poster="../../images/post-1-1.png" id="video"></video>
+         <video src="../../uploadvideo/<?php echo $video; ?>" controls poster="../../images/thumb-1.png" id="video"></video>
       </div>
       <h3 class="title"><?php echo $title; ?></h3>
       <div class="info">
